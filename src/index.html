@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flood Fund</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container" style="width: 650px;">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="text-center">Fund for Flood Victims</h1>
+          <hr />
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#registration">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#donate">Donate</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#check-info">Check Donor Info</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#total-donations">Total Donations</a>
+              </li>
+            </ul>
+          </nav>
+
+
+          <div id="registration">
+            <h3>Register as Donor</h3>
+            <form id="donorRegistrationForm" onsubmit="App.registerDonor(); return false;">
+              <div class="form-group">
+                <label for="donorName">Name</label>
+                <input type="text" class="form-control" id="donorName" required>
+              </div>
+              <div class="form-group">
+                <label for="donorMobile">Phone Number</label>
+                <input type="text" class="form-control" id="donorMobile" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+          </div>
+
+          <hr />
+
+          <div id="donate">
+            <h3>Donate to the Fund</h3>
+            <form id="donationForm" onsubmit="App.donate(); return false;">
+              <div class="form-group">
+                <label for="donorMobileDonation">Your Registered Phone Number</label>
+                <input type="text" class="form-control" id="donorMobileDonation" required>
+              </div>
+              <div class="form-group">
+                <label for="donationArea">Select Donation Area</label>
+                <select class="form-control" id="donationArea" required>
+                  <option value="sylhet">Sylhet</option>
+                  <option value="chittagong-north">Chittagong North</option>
+                  <option value="chittagong-south">Chittagong South</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="donationAmount">Donation Amount (ETH)</label>
+                <input type="number" step="0.01" class="form-control" id="donationAmount" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Donate</button>
+            </form>
+          </div>
+
+          <hr />
+
+
+          <div id="check-info">
+            <h3>Check Donor Info</h3>
+            <form id="checkDonorForm" onsubmit="App.checkDonorInfo(); return false;">
+              <div class="form-group">
+                <label for="donorAddress">Enter Donor Address</label>
+                <input type="text" class="form-control" id="donorAddress" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Check Info</button>
+            </form>
+            <div id="donorInfo" class="mt-3"></div>
+          </div>
+
+          <hr />
+
+
+          <div id="total-donations">
+            <h3>Total Donations</h3>
+            <button id="totalFundsButton" class="btn btn-primary" onclick="App.getTotalFunds();">Get Total Donations</button>
+            <div id="fundsDisplay" class="mt-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
